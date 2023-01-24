@@ -1,0 +1,26 @@
+{
+  "name": "zenflowers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add-android": "cap add android",
+    "sync-android": "cap sync android",
+    "open-android": "cap open android"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^4.6.2",
+    "@capacitor/cli": "^4.6.2",
+    "@capacitor/core": "^4.6.2",
+    "@capacitor/local-notifications": "^4.1.4",
+    "@capacitor/splash-screen": "^4.1.3",
+    "@capacitor/toast": "^4.1.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "15.1.2",
+    "react-scripts": "^2.1.3"
+  }
+}
