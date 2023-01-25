@@ -165,7 +165,7 @@ function init()
 		bodyListener();
 	}else{
 		const info = document.querySelector('.info');
-		info.style.display = 'block';
+		info.style.display = 'flex';
 		const meditationLayer = document.querySelector('.meditation-layer');
 		meditationLayer.style.display = 'flex';
 	}
@@ -183,7 +183,7 @@ function bodyListener(){
 
 	function bodyClicked(){	
 		const info = document.querySelector('.info');
-		info.style.display = 'block';
+		info.style.display = 'flex';
 		mainLayer.style.setProperty('display', 'none');
 		meditationLayer.style.setProperty('display', 'flex');
 		body.removeEventListener('click', bodyClicked, false);
@@ -211,6 +211,7 @@ function initControls()
 	fromToDisplay([infoLayer, back], [meditationLayer, info], back);
 
 	container.addEventListener('scroll', update);
+	container.addEventListener('scroll', updateMeditation);
 
 	meditationLayer.addEventListener('click', () =>{
 		Capacitor.Plugins.Toast.show({
@@ -224,6 +225,29 @@ function update() {
 	const trigger = document.querySelector(".info-layer__tittle");
 	const back = document.querySelector(".back");
 	if(infoLayer.getBoundingClientRect().width<576){
+		if (trigger.getBoundingClientRect().y<0){
+			console.log("!");
+			back.style.top = ".5rem";
+			back.style.right = ".5rem";
+			back.style.height = "3rem";
+			back.style.width = "3rem";
+		}else{
+			back.style.top = "1rem";
+			back.style.right = "1rem";
+			back.style.height = "5rem";
+			back.style.width = "5rem";
+		}
+	}else{
+		back.style.height = "4rem";
+		back.style.width = "4rem";
+	}
+}
+
+function updateMeditation() {
+	const layer = document.querySelector(".meditation-layer");
+	const trigger = document.querySelector(".meditation-layer__text");
+	const back = document.querySelector(".info");
+	if(layer.getBoundingClientRect().width<576){
 		if (trigger.getBoundingClientRect().y<0){
 			console.log("!");
 			back.style.top = ".5rem";
